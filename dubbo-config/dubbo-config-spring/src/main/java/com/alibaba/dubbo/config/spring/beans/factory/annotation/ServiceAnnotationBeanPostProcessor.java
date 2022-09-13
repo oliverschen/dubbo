@@ -249,6 +249,7 @@ public class ServiceAnnotationBeanPostProcessor implements BeanDefinitionRegistr
 
         Class<?> beanClass = resolveClass(beanDefinitionHolder);
 
+        // 找到 @Service 注解的类
         Service service = findAnnotation(beanClass, Service.class);
 
         Class<?> interfaceClass = resolveServiceInterfaceClass(beanClass, service);

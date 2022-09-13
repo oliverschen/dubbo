@@ -130,9 +130,11 @@ public abstract class FailbackRegistry extends AbstractRegistry {
     @Override
     public void register(URL url) {
         super.register(url);
+        // 先从失败的缓存中移除
         failedRegistered.remove(url);
         failedUnregistered.remove(url);
         try {
+            // 重新发起注册，这里用了模板方法设计模式，不同的注册中心 zk/redis 等实现自己的注册逻辑，其他判断一样
             // Sending a registration request to the server side
             doRegister(url);
         } catch (Exception e) {
