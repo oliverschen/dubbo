@@ -18,6 +18,8 @@ package com.alibaba.dubbo.demo.provider;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.lang.reflect.Proxy;
+
 public class Provider {
 
     public static void main(String[] args) throws Exception {
